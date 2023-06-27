@@ -1,14 +1,6 @@
-function getCurrentYear() {
-  const date = new Date();
-  return date.getFullYear();
-}
+import getFullBudgetObject from './9-getFullBudget.js';
 
-export default function getBudgetForCurrentYear(income, gdp, capita) {
-  const budget = {
-    [`income-${getCurrentYear()}`]: income,
-    [`gdp-${getCurrentYear()}`]: gdp,
-    [`capita-${getCurrentYear()}`]: capita,
-  };
+const fullBudget = getFullBudgetObject(20, 50, 10);
 
-  return budget;
-}
+console.log(fullBudget.getIncomeInDollars(fullBudget.income));
+console.log(fullBudget.getIncomeInEuros(fullBudget.income));
