@@ -19,7 +19,8 @@ function handleProfileSignUp(firstName, lastName, fileName) {
           });
         }
       });
-    }).then(() => outcome);
+      return outcome;
+    });
 }
 
 export default handleProfileSignUp;
