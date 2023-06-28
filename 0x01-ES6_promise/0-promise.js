@@ -1,6 +1,6 @@
-export function getResponseFromAPI() {
-	const prom = new Promise(function (resolve, reject) {
-		resolve("Yay!");
-	});
-	return prom;
+export default function getResponseFromAPI() {
+  const prom = new Promise((resolve) => {
+    resolve('Yay!!');
+  });
+  return prom;
 }
