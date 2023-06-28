@@ -15,7 +15,7 @@ function handleProfileSignUp(firstName, lastName, fileName) {
         } else {
           outcome.push({
             status: result.status,
-            value: result.reason,
+            value: `${result.reason}`,
           });
         }
       });
