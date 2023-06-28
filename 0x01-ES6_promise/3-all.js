@@ -14,6 +14,8 @@ function handleProfileSignup() {
     });
   }).then(() => {
     console.log(body, firstName, lastName);
+  }).catch(() => {
+    console.log('Signup system offline');
   });
 }
 
