@@ -6,9 +6,13 @@ class HolbertonCourse {
     if (typeof length !== 'number') {
       throw TypeError('Length must be a number');
     }
-    for (const student of students) {
-      if (typeof student !== 'string') {
-        throw TypeError('Student name must be a string');
+    if (!Array.isArray(students)) {
+      throw TypeError('Students must be an Array');
+    } else {
+      for (const student of students) {
+        if (typeof student !== 'string') {
+          throw TypeError('Student name must be a string');
+        }
       }
     }
     /* eslint-disable no-underscore-dangle */
@@ -44,9 +48,13 @@ class HolbertonCourse {
   }
 
   set students(students) {
-    for (const student of students) {
-      if (typeof student !== 'string') {
-        throw TypeError('Student name must be a string');
+    if (!Array.isArray(students)) {
+      throw TypeError('Students must be an Array');
+    } else {
+      for (const student of students) {
+        if (typeof student !== 'string') {
+          throw TypeError('Student name must be a string');
+        }
       }
     }
     this._students = students;
