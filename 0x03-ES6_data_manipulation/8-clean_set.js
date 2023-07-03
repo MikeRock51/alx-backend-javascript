@@ -1,8 +1,12 @@
 function cleanSet(set, startString) {
   const stringArr = [];
 
+  if (startString === '') {
+    return '';
+  }
+
   for (const word of set) {
-    if (startString !== '' && word.startsWith(startString)) {
+    if (word.startsWith(startString)) {
       stringArr.push(word.split(startString)[1]);
     }
   }
