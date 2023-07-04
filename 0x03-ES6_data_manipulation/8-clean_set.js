@@ -1,7 +1,7 @@
 function cleanSet(set, startString) {
   const stringArr = [];
 
-  if (startString === '' || startString.length < 1) {
+  if (!startString || startString.length < 1) {
     return '';
   }
 
