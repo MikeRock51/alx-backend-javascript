@@ -39,7 +39,7 @@ class Teacher implements TeacherInterface {
 }
 
 type numOrStr = number | string;
-type D_or_T = Director | Teacher;
+type D_or_T = DirectorInterface | TeacherInterface;
 
 function createEmployee(salary: numOrStr): D_or_T {
     if (typeof salary === 'number' && salary < 500) {
@@ -49,6 +49,17 @@ function createEmployee(salary: numOrStr): D_or_T {
     }
 }
 
-// console.log(createEmployee(200));
-// console.log(createEmployee(1000));
-// console.log(createEmployee('$500'));
+function isDirector(employee: D_or_T): boolean {
+    return employee instanceof Director;
+}
+
+function executeWork(employee: D_or_T): string {
+    if (isDirector(employee)) {
+        return (employee as Director).workDirectorTasks();
+    } else {
+        return (employee as Teacher).workTeacherTasks();
+    }
+}
+
+console.log((executeWork(createEmployee(200))));
+console.log(executeWork(createEmployee(1000)));
