@@ -3,10 +3,8 @@ const fs = require('fs');
 function countStudents(path) {
   const students = {};
 
-  fs.readFile(path, 'utf-8', (err, data) => {
-    if (err) {
-      throw new Error('Cannot load the database');
-    }
+  try {
+    const data = fs.readFileSync(path, 'utf-8');
     const lines = data.split('\n');
     if (lines[lines.length - 1] === '') {
       lines.pop();
@@ -28,10 +26,14 @@ function countStudents(path) {
     for (const field in students) {
       if (students[field]) {
         const firstnames = students[field].join(', ');
-        console.log(`Number of students in ${field}: ${students[field].length}. List: ${firstnames}`);
+        console.log(
+          `Number of students in ${field}: ${students[field].length}. List: ${firstnames}`,
+        );
       }
     }
-  });
+  } catch (err) {
+    throw new Error('Cannot load the database');
+  }
 }
 
 module.exports = countStudents;
