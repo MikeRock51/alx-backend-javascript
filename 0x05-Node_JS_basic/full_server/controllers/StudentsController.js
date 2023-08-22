@@ -10,8 +10,7 @@ class StudentsController {
             entry[1].length
           }.\nList: ${entry[1].join(', ')}\n`;
         }
-        response.send(res.trim());
-        return response.status(200);
+        response.status(200).send(res.trim());
       })
       .catch((err) => response.status(500).send(err.message));
   }
