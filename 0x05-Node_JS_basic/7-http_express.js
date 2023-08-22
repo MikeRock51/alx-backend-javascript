@@ -47,14 +47,11 @@ app.get('/', (req, res) => {
 });
 
 app.get('/students', (req, res) => {
-  if (!process.argv[2]) {
-    res.send('Cannot load the database');
-  }
   countStudents(process.argv[2]).then((output) => {
     const str = `This is the list of our students\n${output}`;
     res.send(str.trim());
   }).catch((err) => {
-    res.send(err.message);
+    res.send(`This is the list of our students\n${err.message}`);
   });
 });
 
