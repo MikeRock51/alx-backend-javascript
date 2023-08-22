@@ -16,21 +16,18 @@ class StudentsController {
       .catch((err) => response.status(500).send(err.message));
   }
 
-  // eslint-disable-next-line consistent-return
   static getAllStudentsByMajor(request, response) {
     const { major } = request.params;
     if (major !== 'CS' && major !== 'SWE') {
-      response.send('Major parameter must be CS or SWE');
-      return response.status(500);
+      response.status(500).send('Major parameter must be CS or SWE');
+      return;
     }
     readDatabase(process.argv[2])
       .then((students) => {
-        response.send(`List: ${students[major].join(', ')}`);
-        return response.status(200);
+        response.status(200).send(`List: ${students[major].join(', ')}`);
       })
       .catch((err) => {
-        response.send(err.message);
-        return response.status(500);
+        response.status(500).send(err.message);
       });
   }
 }
