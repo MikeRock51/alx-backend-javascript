@@ -45,21 +45,21 @@ const port = 1245;
 const app = http.createServer((req, res) => {
   const { url } = req;
   res.setHeader('Content-Type', 'text/plain');
+  res.statusCode = 200;
 
   if (url === '/') {
-    res.statusCode = 200;
     res.end('Hello Holberton School!');
   } else if (url === '/students') {
-    try {
-      countStudents(process.argv[2]).then((output) => {
-        res.statusCode = 200;
+    countStudents(process.argv[2])
+      .then((output) => {
         res.write('This is the list of our students\n');
         res.write(output.trim());
         res.end();
+      })
+      .catch((err) => {
+        res.statusCode = 404;
+        res.end(err.message);
       });
-    } catch (err) {
-      res.end(err);
-    }
   }
 });
 
