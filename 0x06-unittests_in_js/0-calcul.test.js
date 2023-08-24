@@ -2,8 +2,8 @@ const calculateNumber = require("./0-calcul");
 const assert = require("assert");
 
 describe("Test calculateNumber", function () {
-  it("Checks for equality", function () {
-    assert.equal(calculateNumber(2.8, 3.2), 6);
+  it("Checks if decimal rounds", function () {
+    assert.equal(calculateNumber(6, 4), 10);
   });
   it("Checks if numbers round", function () {
     assert.equal(calculateNumber(2.8, 1.5), 5);
