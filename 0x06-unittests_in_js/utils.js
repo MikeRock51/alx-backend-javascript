@@ -6,7 +6,6 @@ const Utils = {
       if (Math.round(b) === 0) return "Error";
       return Math.round(a) / Math.round(b);
     }
-    return 0;
   }
 }
 

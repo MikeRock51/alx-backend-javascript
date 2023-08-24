@@ -9,5 +9,6 @@ describe("sendPaymentRequestToApi", function () {
     sendPaymentRequestToApi(100, 20);
     expect(spy.calledOnce).to.be.true;
     expect(spy.calledWith("SUM", 100, 20)).to.be.true;
+    spy.restore();
   });
 });
