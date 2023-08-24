@@ -6,7 +6,7 @@ describe("Test calculateNumber", function () {
     assert.equal(calculateNumber(2.8, 3.2), 6);
   });
   it("Checks if numbers round", function () {
-    assert.notEqual(calculateNumber(2.8, 3.1), 5.9);
+    assert.equal(calculateNumber(2.8, 1.5), 5);
   });
   it("Checks if negative numbers round", function () {
     assert.equal(calculateNumber(-10.5, -69.2), -79);
