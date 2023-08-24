@@ -9,7 +9,7 @@ describe("sendPaymentRequestToApi", function () {
     stub.returns(10);
     const spy = sinon.spy(console, "log");
     sendPaymentRequestToApi(100, 20);
-    expect(spy.calledWith("The total is 10")).to.be.true;
+    expect(spy.calledWith("The total is: 10")).to.be.true;
     expect(spy.called).to.be.true;
     spy.restore();
     stub.restore();
