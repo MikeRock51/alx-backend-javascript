@@ -4,7 +4,7 @@ const expect = require("chai").expect;
 describe("Test calculateNumber", function () {
   describe("Test SUM", function () {
     it("Checks for equality", function () {
-      expect(calculateNumber("SUM", 2.8, 3.2)).to 6;
+      expect(calculateNumber("SUM", 2.8, 3.2)).to.equal(6);
     });
     it("Checks if numbers round", function () {
       assert.notEqual(calculateNumber("SUM", 2.8, 3.1), 5.9);
