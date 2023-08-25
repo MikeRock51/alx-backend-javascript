@@ -8,6 +8,9 @@ describe("Test calculateNumber", function () {
   it("Checks if numbers round", function () {
     assert.equal(calculateNumber(2.8, 1.5), 5);
   });
+  it("Checks if first number is rounded", function () {
+    assert.equal(calculateNumber(2.8, 1), 4);
+  });
   it("Checks if negative numbers round", function () {
     assert.equal(calculateNumber(-10.5, -69.2), -79);
   });
