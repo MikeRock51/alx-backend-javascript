@@ -32,6 +32,14 @@ describe("Integration Test", function () {
     });
   });
 
+  it("Tests the /available_payments route", function (done) {
+    request("http://127.0.0.1:7865/available_payments", function (error, response, body) {
+      expect(response.statusCode).to.be.equal(200);
+      expect(body).to.be.equal('{"payment_methods":{"credit_cards":true,"paypal":false}}');
+      done();
+    });
+  });
+
   it("Tests the /login route", function (done) {
     const opt = {
       url: "http://127.0.0.1:7865/login",
